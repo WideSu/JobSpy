@@ -2,12 +2,12 @@ import csv
 from jobspy import scrape_jobs
 
 jobs = scrape_jobs(
-    site_name=["indeed", "linkedin", "glassdoor", "google", "bayt", "naukri"],
+    site_name=["indeed", "linkedin", "glassdoor", "google", "bayt"],
     search_term="software engineer",
     google_search_term="software engineer jobs near Singapore since yesterday",
     location="Singapore",
     results_wanted=100,
-    hours_old=72,
+    hours_old=24,
     country_indeed='Singapore',
     
     # linkedin_fetch_description=True # gets more info such as description, direct job url (slower)

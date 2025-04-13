@@ -10,10 +10,41 @@
 
 ![jobspy](https://github.com/cullenwatson/JobSpy/assets/78247585/ec7ef355-05f6-4fd3-8161-a817e31c5c57)
 
-### Installation
+### How to use it?
 
+#### 1. Install Poetry if you haven't installed it
+Poetry is a tool for dependency management and packaging in Python — it helps you:
+- Manage dependencies (like pip)
+- Create virtual environments (like venv)
+- Build and publish your packages (like setup.py)
+- Keep all configurations in a clean pyproject.toml file (no more requirements.txt, setup.cfg, MANIFEST.in clutter!)
+
+Install Poetry using curl (Mac/Linux)
+```{shell}
+curl -sSL https://install.python-poetry.org | python3 -
 ```
-pip install -U python-jobspy
+
+Then add it to your `PATH` enviroment variable
+```{shell}
+export PATH="/Users/huanganni/.local/bin:$PATH"
+source ~/.zshrc   # apply changes(if using Zsh)
+source ~/.bashrc  # apply changes(if using Bash)
+```
+
+### 2. Activate virtual enviroment
+```{shell}
+env activate
+```
+
+### 3. Install all the dependencies from poetry.lock
+If you see error message: `pyproject.toml changed significantly since poetry.lock was last generated. Run poetry lock to fix the lock file.`, you can update poetry lock first `poetry lock` before running the command below.
+```{shell}
+poetry install
+```
+
+### 4. Run main.py to fetch jobs posted since yesterday
+```{shell}
+poetry run python main.py
 ```
 
 _Python version >= [3.10](https://www.python.org/downloads/release/python-3100/) required_
