@@ -31,25 +31,25 @@ source ~/.zshrc   # apply changes(if using Zsh)
 source ~/.bashrc  # apply changes(if using Bash)
 ```
 
-### 2. Activate virtual enviroment
+#### 2. Activate virtual enviroment
 ```{shell}
 env activate
 ```
 
-### 3. Install all the dependencies from poetry.lock
+#### 3. Install all the dependencies from poetry.lock
 If you see error message: `pyproject.toml changed significantly since poetry.lock was last generated. Run poetry lock to fix the lock file.`, you can update poetry lock first `poetry lock` before running the command below.
 ```{shell}
 poetry install
 ```
 
-### 4. Run main.py to fetch jobs posted since yesterday
+#### 4. Run main.py to fetch jobs posted since yesterday
 ```{shell}
 poetry run python main.py
 ```
 
 _Python version >= [3.10](https://www.python.org/downloads/release/python-3100/) required_
 
-### Usage
+#### Example main function
 
 ```python
 import csv
