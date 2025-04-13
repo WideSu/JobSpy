@@ -56,13 +56,13 @@ import csv
 from jobspy import scrape_jobs
 
 jobs = scrape_jobs(
-    site_name=["indeed", "linkedin", "zip_recruiter", "glassdoor", "google", "bayt", "naukri"],
+    site_name=["indeed", "linkedin", "glassdoor", "google", "bayt"],
     search_term="software engineer",
-    google_search_term="software engineer jobs near San Francisco, CA since yesterday",
-    location="San Francisco, CA",
-    results_wanted=20,
-    hours_old=72,
-    country_indeed='USA',
+    google_search_term="software engineer jobs near Singapore since yesterday",
+    location="Singapore",
+    results_wanted=100,
+    hours_old=24,
+    country_indeed='Singapore',
     
     # linkedin_fetch_description=True # gets more info such as description, direct job url (slower)
     # proxies=["208.195.175.46:65095", "208.195.175.45:65095", "localhost"],
@@ -74,16 +74,14 @@ jobs.to_csv("jobs.csv", quoting=csv.QUOTE_NONNUMERIC, escapechar="\\", index=Fal
 
 ### Output
 
-```
-SITE           TITLE                             COMPANY           CITY          STATE  JOB_TYPE  INTERVAL  MIN_AMOUNT  MAX_AMOUNT  JOB_URL                                            DESCRIPTION
-indeed         Software Engineer                 AMERICAN SYSTEMS  Arlington     VA     None      yearly    200000      150000      https://www.indeed.com/viewjob?jk=5e409e577046...  THIS POSITION COMES WITH A 10K SIGNING BONUS!...
-indeed         Senior Software Engineer          TherapyNotes.com  Philadelphia  PA     fulltime  yearly    135000      110000      https://www.indeed.com/viewjob?jk=da39574a40cb...  About Us TherapyNotes is the national leader i...
-linkedin       Software Engineer - Early Career  Lockheed Martin   Sunnyvale     CA     fulltime  yearly    None        None        https://www.linkedin.com/jobs/view/3693012711      Description:By bringing together people that u...
-linkedin       Full-Stack Software Engineer      Rain              New York      NY     fulltime  yearly    None        None        https://www.linkedin.com/jobs/view/3696158877      Rain’s mission is to create the fastest and ea...
-zip_recruiter Software Engineer - New Grad       ZipRecruiter      Santa Monica  CA     fulltime  yearly    130000      150000      https://www.ziprecruiter.com/jobs/ziprecruiter...  We offer a hybrid work environment. Most US-ba...
-zip_recruiter Software Developer                 TEKsystems        Phoenix       AZ     fulltime  hourly    65          75          https://www.ziprecruiter.com/jobs/teksystems-0...  Top Skills' Details• 6 years of Java developme...
-
-```
+| id                     | site       | job_url                                                                 | title                                       | company                             | location               | date_posted | job_type | salary_source | interval | min_amount | max_amount | currency | is_remote | job_level | job_function | listing_type | emails | description                                                                 | company_industry | company_url | company_logo | company_url_direct | company_addresses | company_num_employees | company_revenue | company_description | skills | experience_range | company_rating | company_reviews_count | vacancy_count | work_from_home_type |
+|------------------------|------------|-------------------------------------------------------------------------|---------------------------------------------|-------------------------------------|------------------------|-------------|----------|---------------|----------|------------|------------|----------|-----------|-----------|--------------|--------------|--------|-----------------------------------------------------------------------------|------------------|-------------|--------------|--------------------|-------------------|------------------------|-----------------|---------------------|--------|------------------|----------------|-----------------------|---------------|---------------------|
+| bayt-593779292887847651 | bayt       | [link](https://www.bayt.com/en/lebanon/jobs/software-developer-beirut-5297605/) | Software Developer - Beirut                 | Adequate Resources                  | Beirut · Lebanon       |             |          |               |          |            |            |          |           |           |              |              |        |                                                                             |                  |             |              |                    |                   |                        |                 |                     |        |                  |                |                       |               |                     |
+| bayt-6644104264792287457 | bayt       | [link](https://www.bayt.com/en/india/jobs/microsoft-copilot-agent-developer-5296608/) | Microsoft Copilot Agent Developer           | Empathy Technologies                | Bengaluru · India      |             |          |               |          |            |            |          |           |           |              |              |        |                                                                             |                  |             |              |                    |                   |                        |                 |                     |        |                  |                |                       |               |                     |
+| bayt-7611479627097462454 | bayt       | [link](https://www.bayt.com/en/qatar/jobs/application-developer-5291017/) | Application Developer                       | Futureway Line                      | Doha · Qatar           |             |          |               |          |            |            |          |           |           |              |              |        |                                                                             |                  |             |              |                    |                   |                        |                 |                     |        |                  |                |                       |               |                     |
+| bayt-2430312494324618935 | bayt       | [link](https://www.bayt.com/en/uae/jobs/fsd-developer-5289297/)        | FSD Developer                               | Synechron                           | Dubai · UAE            |             |          |               |          |            |            |          |           |           |              |              |        |                                                                             |                  |             |              |                    |                   |                        |                 |                     |        |                  |                |                       |               |                     |
+| ... (truncated for brevity) | ...        | ...                                                                     | ...                                         | ...                                 | ...                    | ...         | ...      | ...           | ...      | ...        | ...        | ...      | ...       | ...       | ...          | ...          | ...    | ...                                                                         | ...              | ...         | ...          | ...                | ...               | ...                    | ...             | ...                 | ...    | ...              | ...            | ...                   | ...           | ...                 |
+| gd-1009707852379        | glassdoor  | [link](https://www.glassdoor.sg/job-listing/j?jl=1009707852379)        | Software Engineer (Front End)               | TEKsystems (Allegis Group Singapore Pte Ltd) | Singapore              | 2025-04-13  |          |               |          |            |            |          | No        |           |              | sponsored    |        | Collaborate with product team to implement user-friendly interfaces.        |                  |             |              |                    |                   |                        |                 |                     |        |                  |                |                       |               |                     |
 
 ### Parameters for `scrape_jobs()`
 
